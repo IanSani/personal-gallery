@@ -12,4 +12,6 @@ class ImageTest(TestCase):
         self.drink.Category.add(self.fun)
         self.drinks.Category.add(self.music)
 
-    
+    def test_instance(self):
+        self.drink.save()
+        self.assertTrue(isinstance(self.drinks, Image))
