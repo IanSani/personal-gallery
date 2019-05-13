@@ -18,6 +18,16 @@ class Location(models.Model):
 class Image(models.Model):
     name =models.CharField(max-length=50)
     description = HTMLField()
-    gallery-image = models.ImageField(upload_to='', blank=True)
+    gallery-image = models.ImageField(upload_to='photos/', blank=True)
     Category = models.ManyToManyField(Category)
     location = models.ForeignKey(Location)
+
+    @classmethod
+    def all_images(self):
+
+        return Image.objects.all()
+
+    @classmethod
+    def search_by_category(cls,search_images):
+        images = Image.objects.filter(Category_name_icontains=search_images)
+        return images
