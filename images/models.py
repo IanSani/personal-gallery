@@ -39,5 +39,5 @@ class Image(models.Model):
 
     @classmethod
     def view_category(cls,cat):
-        categories = cls.objects.filter(Category=cat)
+        Category = cls.objects.filter(Category=cat)
         return Category
