@@ -29,7 +29,7 @@ class Image(models.Model):
 
     @classmethod
     def search_by_category(cls,search_images):
-        images = Image.objects.filter(Category_name_icontains=search_images)
+        images = Image.objects.filter(name__icontains=search_images)
         return images
 
     @classmethod

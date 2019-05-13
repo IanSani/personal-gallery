@@ -20,8 +20,8 @@ def home(request):
     return render(request,"all-images.html",{"images":images,"location":location,"Category":Category})
 
 def search_results(request):
-    if 'categories' in request.GET and request.GET['Category']:
-        search_images =request.GET,get("Category")
+    if 'Category' in request.GET and request.GET['Category']:
+        search_images =request.GET.get("Category")
         searched_images = Image.search_by_category(search_images)
         message = f"{search_images}"
 
