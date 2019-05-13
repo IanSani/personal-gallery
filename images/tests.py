@@ -20,3 +20,8 @@ class ImageTest(TestCase):
         self.drinks.save()
         self.drinks.delete()
         self.asserTrue(len(Image.objects.all())== 0)
+
+    def test_update(self):
+        self.drinks.save()
+        self.drinks.name ="MoreDrinks"
+        self.asserTrue(self.drinks.name == 'MoreDrinks')
