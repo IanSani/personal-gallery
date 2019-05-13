@@ -15,3 +15,8 @@ class ImageTest(TestCase):
     def test_instance(self):
         self.drink.save()
         self.assertTrue(isinstance(self.drinks, Image))
+
+    def test_delete_image(self):
+        self.drinks.save()
+        self.drinks.delete()
+        self.asserTrue(len(Image.objects.all())== 0)
