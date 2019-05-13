@@ -9,5 +9,5 @@ urlpatterns =[
     url(r'^image/(\d+)',views.get_image_by_id,name ='image')
 ]
 
-if aettings.DEBUG:
+if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
