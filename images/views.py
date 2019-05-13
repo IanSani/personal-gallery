@@ -30,3 +30,10 @@ def search_results(request):
     else:
         message ="No image has been searched"
         return render(request, 'search.html',{"message":message})
+
+def get_image_by_id(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"image.html", {"image":image})
