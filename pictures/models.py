@@ -14,3 +14,10 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
+
+class Image(models.Model):
+    name =models.CharField(max-length=50)
+    description = HTMLField()
+    gallery-image = models.ImageField(upload_to='', blank=True)
+    Category = models.ManyToManyField(Category)
+    location = models.ForeignKey(Location)
