@@ -48,7 +48,7 @@ Admin should:
 ### Cloning
 * In your terminal:
 
-        $ git clone https://github.com/emdeechege/MyGallery
+        $ git clone https://github.com/IanSani/personal-gallery
         $ cd MyGallery
 
 ## Running the Application
