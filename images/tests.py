@@ -9,42 +9,50 @@ class ImageTest(TestCase):
         self.music = Category.objects.create(name='music')
 
         self.drinks = Image.objects.create(name='drinks',location=self.nairobi, description='picture of a drinks')
-        self.drink.Category.add(self.fun)
+        self.drinks.Category.add(self.fun)
         self.drinks.Category.add(self.music)
 
     def test_instance(self):
-        self.drink.save()
+        self.drinks.save()
         self.assertTrue(isinstance(self.drinks, Image))
 
     def test_delete_image(self):
         self.drinks.save()
         self.drinks.delete()
-        self.asserTrue(len(Image.objects.all())== 0)
+        self.assertTrue(len(Image.objects.all())== 0)
 
     def test_update(self):
         self.drinks.save()
         self.drinks.name ="MoreDrinks"
-        self.asserTrue(self.drinks.name == 'MoreDrinks')
+        self.assertTrue(self.drinks.name == 'MoreDrinks')
 
     def test_all_images(self):
         self.drinks.save()
         images = Image.all_images()
-        self.asserTrue(len(images) >0)
+        self.assertTrue(len(images) >0)
 
     def test_search_by_category(self):
         self.drinks.save()
-        location = Image.view_location(self.nairobi)
-        self.asserTrue(len(location) >0)
+        Category = Image.view_location(self.nairobi)
+        self.assertTrue(len(Category) >0)
 
     def test_view_category(self):
         self.drinks.save()
         location =Image.view_category(self.music)
-        self.asserTrue(len(Category) >0)
+        self.assertTrue(len(location) >0)
 
-class LocationTest(Test)
+class CategoryTest(TestCase):
+    def setUp(self):
+        self.nature = Category(name='nature')
+
+    def test_instance(self):
+        self.nature.save()
+        self.assertTrue(isinstance(self.nature, Category))
+
+class LocationTest(TestCase):
     def setUp(self):
         self.nairobi = Location(name='nairobi')
 
     def test_instance(self):
         self.nairobi.save()
-        self.asserTrue(isinstance(self.nairobi, Location))
+        self.assertTrue(isinstance(self.nairobi, Location))

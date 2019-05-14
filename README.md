@@ -49,7 +49,7 @@ Admin should:
 * In your terminal:
 
         $ git clone https://github.com/IanSani/personal-gallery
-        $ cd MyGallery
+        $ cd personal-gallery
 
 ## Running the Application
 * Creating the virtual environment
